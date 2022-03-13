@@ -7,9 +7,11 @@ public interface ByeContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(ByeViewModel viewModel);
+        void displayByeData(ByeViewModel viewModel);
 
-        void navigateToNextScreen();
+//        void onDataUpdated(ByeViewModel viewModel);
+
+//        void navigateToNextScreen();/
     }
 
     interface Presenter {
@@ -17,11 +19,14 @@ public interface ByeContract {
 
         void injectModel(Model model);
 
+        void sayByeButtonClicked();
+        void goHelloButtonClicked();
+
         void onResume();
 
-        void onStart();
+/*        void onStart();
 
-        void onRestart();
+        void onRestart();*/
 
         void onBackPressed();
 
@@ -31,7 +36,8 @@ public interface ByeContract {
     }
 
     interface Model {
-        String getStoredData();
+
+        String getByeMessage();
 
         void onDataFromNextScreen(String data);
 
