@@ -101,4 +101,9 @@ public class ByeActivity
         // deal with the data
         byeMessage.setText(viewModel.byeMessage);
     }
+
+    @Override
+    public void navigateToHelloScreen() {
+        finish();
+    }
 }

@@ -39,7 +39,6 @@ public class AppMediator {
 
   public HelloToByeState getHelloToByeState() {
     HelloToByeState state = helloToByeState;
-    helloToByeState = null;
     return state;
   }
 
@@ -49,7 +48,6 @@ public class AppMediator {
 
   public ByeToHelloState getByeToHelloState() {
     ByeToHelloState state = byeToHelloState;
-    byeToHelloState = null;
     return state;
   }
   public void setByeToHelloState(ByeToHelloState state) {

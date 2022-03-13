@@ -9,6 +9,8 @@ public interface ByeContract {
 
         void displayByeData(ByeViewModel viewModel);
 
+        void navigateToHelloScreen();
+
 //        void onDataUpdated(ByeViewModel viewModel);
 
 //        void navigateToNextScreen();/

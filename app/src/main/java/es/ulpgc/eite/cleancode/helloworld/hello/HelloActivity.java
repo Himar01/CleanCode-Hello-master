@@ -20,8 +20,8 @@ public class HelloActivity
 
   HelloContract.Presenter presenter;
 
-  Button sayHelloButton, goByeButton;
-  TextView helloMessage;
+  public Button sayHelloButton, goByeButton;
+  public TextView helloMessage;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

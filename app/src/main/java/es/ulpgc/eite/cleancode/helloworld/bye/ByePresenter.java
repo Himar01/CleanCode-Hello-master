@@ -3,6 +3,7 @@ package es.ulpgc.eite.cleancode.helloworld.bye;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.helloworld.app.AppMediator;
+import es.ulpgc.eite.cleancode.helloworld.app.ByeToHelloState;
 import es.ulpgc.eite.cleancode.helloworld.app.HelloToByeState;
 
 public class ByePresenter implements ByeContract.Presenter {
@@ -118,13 +119,31 @@ public class ByePresenter implements ByeContract.Presenter {
   }
 
   @Override
-  public void sayByeButtonClicked() {
+  public void goHelloButtonClicked() {
+    ByeToHelloState newState = new ByeToHelloState(state.byeMessage);
+    passDataToHelloScreen(newState);
+    navigateToHelloScreen();
+  }
 
+  private void navigateToHelloScreen() {
+    view.get().navigateToHelloScreen();
+  }
+
+  private void passDataToHelloScreen(ByeToHelloState state) {
+    mediator.setByeToHelloState(new ByeToHelloState(state.message));
   }
 
   @Override
-  public void goHelloButtonClicked() {
+  public void sayByeButtonClicked() {
+/*    state.byeMessage = "";
+    view.get().displayByeData(state);*/
+    startByeMessageAsyncTask();
+  }
 
+  private void startByeMessageAsyncTask() {
+    state.byeMessage = model.getByeMessage();
+    view.get().displayByeData(state);
+    mediator.setHelloToByeState(new HelloToByeState(state.byeMessage));
   }
 
 }
